@@ -9,27 +9,6 @@
 <body>
     <div id="content"></div>
 
-    <script>
-        fetch('./content/wp-comsoc21.xml')
-            .then(response => response.text())
-            .then(str => new window.DOMParser().parseFromString(str, "text/xml"))
-            .then(data => {
-                const posts = data.getElementsByTagName('item');
-                const contentDiv = document.getElementById('content');
-                
-                for(let post of posts) {
-                    const title = post.getElementsByTagName('title')[0].textContent;
-                    const content = post.getElementsByTagName('content:encoded')[0].textContent;
-                    
-                    const article = document.createElement('article');
-                    article.className = 'post';
-                    article.innerHTML = `
-                        <h2>${title}</h2>
-                        <div class="post-content">${content}</div>
-                    `;
-                    contentDiv.appendChild(article);
-                }
-            });
-    </script>
+ 
 </body>
 </html>
