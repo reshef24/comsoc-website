@@ -10,7 +10,7 @@
     <div id="content"></div>
 
     <script>
-        fetch('./content/wp-comsoc-21.xml')
+        fetch('./content/wp-comsoc21.xml')
             .then(response => response.text())
             .then(str => new window.DOMParser().parseFromString(str, "text/xml"))
             .then(data => {
